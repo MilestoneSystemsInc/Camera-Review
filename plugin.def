@@ -1,0 +1,4 @@
+<plugin>
+   <file name="Camera_Review.dll"/>
+	<load env="Administration" />
+</plugin>
