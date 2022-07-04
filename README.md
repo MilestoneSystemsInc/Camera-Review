@@ -8,7 +8,7 @@ https://www.milestonesys.com/community/business-partner-tools/supported-devices/
 then export the csv once loaded.
 2, a list of passwords to test the setup against, I've inclued a list of 10,000,000 passwords from 
 https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
-plase include the header "passwordlist" to the top of the list to correctly load the list.
+please include the header "passwordlist" to the top of the list to correctly load the list.
 
 Installation (installed on the management Client)
 
