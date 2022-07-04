@@ -223,9 +223,9 @@ namespace Camera_Review.Admin
                     }
                     }
                 }
-                catch (FileLoadException e)
+                catch (System.IO.IOException e)
                 {
-                    
+                    MessageBox.Show(e.Message);
                 }
             }
         }
