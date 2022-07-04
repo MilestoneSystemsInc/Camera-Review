@@ -89,7 +89,7 @@ namespace Camera_Review.Admin
             // button3
             // 
             this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(25, 19);
+            this.button3.Location = new System.Drawing.Point(99, 62);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 7;
@@ -132,6 +132,8 @@ namespace Camera_Review.Admin
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Location = new System.Drawing.Point(315, 19);
             this.groupBox2.Name = "groupBox2";
@@ -152,7 +154,7 @@ namespace Camera_Review.Admin
             "Medium",
             "Strong",
             "VeryStrong"});
-            this.comboBox1.Location = new System.Drawing.Point(196, 35);
+            this.comboBox1.Location = new System.Drawing.Point(24, 35);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(150, 21);
             this.comboBox1.TabIndex = 11;
@@ -173,12 +175,10 @@ namespace Camera_Review.Admin
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.checkedListBox1);
             this.groupBox3.Location = new System.Drawing.Point(521, 19);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(353, 100);
+            this.groupBox3.Size = new System.Drawing.Size(201, 100);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Search";
@@ -186,7 +186,7 @@ namespace Camera_Review.Admin
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(196, 19);
+            this.label3.Location = new System.Drawing.Point(24, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 13);
             this.label3.TabIndex = 13;
@@ -194,7 +194,7 @@ namespace Camera_Review.Admin
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(880, 43);
+            this.button4.Location = new System.Drawing.Point(728, 38);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(118, 40);
             this.button4.TabIndex = 14;
@@ -219,8 +219,8 @@ namespace Camera_Review.Admin
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -28,6 +28,7 @@ namespace Camera_Review.Admin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpPage));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -39,7 +40,7 @@ namespace Camera_Review.Admin
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(494, 373);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Here you can enter some help or guidelines for the administrator.";
+            this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // HelpPage
             // 

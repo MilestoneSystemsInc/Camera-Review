@@ -103,7 +103,7 @@ namespace Camera_Review
                                          )
             {
                 SortKey = 1,
-                PlacementHint = PlacementHint.Root
+                PlacementHint = PlacementHint.Default
             });
             if (EnvironmentManager.Instance.EnvironmentType == EnvironmentType.SmartClient)
             {
@@ -181,22 +181,7 @@ namespace Camera_Review
         /// and will result in a combination of this top level ProductNode for several plugins.
         /// Set to Guid.Empty if no sharing is enabled.
         /// </summary>
-        public override Guid SharedNodeId
-        {
-            get
-            {
-                return  new Guid("11111111-1111-1111-1111-111111111111");
-            }
-        }
 
-
-        public override string SharedNodeName
-        {
-            get
-            {
-                return "4Js";
-            }
-        }
 
         /// <summary>
         /// Define name of top level Tree node - e.g. A product name
@@ -249,22 +234,7 @@ namespace Camera_Review
             get { return _itemNodes; }
         }
 
-        /// <summary>
-        /// An extension plug-in running in the Administrator to add a tab for built-in devices and hardware.
-        /// </summary>
-        public override ICollection<TabPlugin> TabPlugins
-        {
-            get { return _tabPlugins; }
-        }
-
-        /// <summary>
-        /// An extension plug-in running in the Administrator to add more tabs to the Tools-Options dialog.
-        /// </summary>
-        public override List<ToolsOptionsDialogPlugin> ToolsOptionsDialogPlugins
-        {
-            get { return _toolsOptionsDialogPlugins; }
-        }
-
+  
         /// <summary>
         /// A user control to display when the administrator clicks on the top TreeNode
         /// </summary>

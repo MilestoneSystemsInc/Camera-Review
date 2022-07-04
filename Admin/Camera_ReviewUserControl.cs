@@ -39,11 +39,11 @@ namespace Camera_Review.Admin
         DataTable dt = new DataTable();
         DataTable dtfirmwares= new DataTable();
         DataTable dtpasswords= new DataTable();
-
+        String sComboValue="";
         public Camera_ReviewUserControl()
         {
             InitializeComponent();
-            comboBox1.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 3;
 
             backgroundWorker1.WorkerReportsProgress = true;
             backgroundWorker1.ProgressChanged += backgroundWorker1_ProgressChanged;
@@ -51,7 +51,8 @@ namespace Camera_Review.Admin
             dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(dataGridView1_CellFormatting);
             this.Controls.Add(dataGridView1);
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-            
+            sComboValue=comboBox1.Text;
+
 
         }
 
@@ -128,6 +129,7 @@ namespace Camera_Review.Admin
         }
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+           
             DataRowView row = dataGridView1.Rows[e.RowIndex].DataBoundItem as DataRowView;
            if (row != null) {
                string mytemp = row.Row.ItemArray[0].ToString();
@@ -141,8 +143,9 @@ namespace Camera_Review.Admin
                 {
                     e.CellStyle.ForeColor = Color.Red;
                 }
+            }
+        
         }
-    }
 
         void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -256,9 +259,9 @@ namespace Camera_Review.Admin
                         }
                     }
                 }
-                catch (FileLoadException e)
+                catch (System.IO.IOException e)
                 {
-
+                    MessageBox.Show(e.Message);
                 }
             }
         }
@@ -378,6 +381,8 @@ namespace Camera_Review.Admin
 
         private int BackgroundProcessLogicMethod(BackgroundWorker bw)
         {
+            
+
             int counter = 0;
             int Total = 0;
             List<string> passme = new List<string>();
@@ -391,9 +396,9 @@ namespace Camera_Review.Admin
             Configuration.Instance.RefreshConfiguration(Kind.Server);
             List<Item> sites = Configuration.Instance.GetItemsByKind(Kind.Server, ItemHierarchy.SystemDefined);
             Log_Message("Initial Config pulled", false);
-            bw.ReportProgress(50);
-            dt.Clear();
-            dt.Columns.Clear();
+             bw.ReportProgress(50);
+            dt.Rows.Clear();
+            
 
 
             if (dt.Columns.Count == 0)
@@ -454,24 +459,17 @@ namespace Camera_Review.Admin
                         
                         passme.Add(_ravi["FirmwareTest"].ToString());
                         passme.Add(_ravi["PaswordMatch"].ToString());
-
-                        if (((int)passmeup)<3)
-                        {
-                            passme.Add("Warning");
-                        }
+                        passme.Add(_ravi["PasswordComplexityRating"].ToString());
+                        
 
                         int irating=howbadisit(passme.ToArray());
                         if (irating == 0)
                         {
                             _ravi["Rating"] = "0";
                         }
-                        else if (irating==1)
+                        else if (irating>0)
                         {
                             _ravi["Rating"] = "1";
-                        }
-                        else
-                        {
-                            _ravi["Rating"] = "2";
                         }
                         
                         dt.Rows.Add(_ravi);
@@ -493,14 +491,39 @@ namespace Camera_Review.Admin
             foreach(string s in mystrings)
             {
                 if (s.ToLower().Contains("warning"))
-                {rating++; }
-            }
+                {rating++;break; }
+            
+                switch (sComboValue)
+                {
+                    case "VeryStrong":
+                        if (s.ToLower().Contains("strong")) { rating++; break; }
 
+                        goto case "Strong";
+                    case "Strong":
+                        if (s.ToLower().Contains("medium")) { rating++; break; }
+
+                        goto case "Medium";
+                    case "Medium":
+                        if (s.ToLower().Contains("weak")) { rating++; break; }
+
+                        goto case "Weak";
+                    case "Weak":
+                        if (s.ToLower().Contains("veryweak")) { rating++; break; }
+
+                        goto case "VeryWeak";
+                    case "VeryWeak":
+                        if (s.ToLower().Contains("blank")) { rating++; break; }
+
+                        break;
+                }
+            }
             return rating;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = "";
+            sComboValue=comboBox1.Text;
             backgroundWorker1.RunWorkerAsync(2000);
         }
 
@@ -527,7 +550,9 @@ namespace Camera_Review.Admin
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            sComboValue = comboBox1.Text;
             filter();
+
         }
 
         private void button4_Click(object sender, EventArgs e)

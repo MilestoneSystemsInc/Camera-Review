@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Camera_Review</RootNamespace>
-    <AssemblyName>Camera Review</AssemblyName>
+    <AssemblyName>Camera_Review</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -64,12 +64,6 @@
     <PackageReference Include="MilestoneSystems.VideoOS.Platform" Version="*" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Camera_ReviewAddUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Admin\Camera_ReviewAddUserControl.Designer.cs">
-      <DependentUpon>Camera_ReviewAddUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Camera_ReviewHelpPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -77,20 +71,6 @@
       <DependentUpon>Camera_ReviewHelpPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\Camera_ReviewItemManager.cs" />
-    <Compile Include="Admin\Camera_ReviewTabPlugin.cs" />
-    <Compile Include="Admin\Camera_ReviewTabUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Admin\Camera_ReviewTabUserControl.Designer.cs">
-      <DependentUpon>Camera_ReviewTabUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Camera_ReviewToolsOptionDialogPlugin.cs" />
-    <Compile Include="Admin\Camera_ReviewToolsOptionDialogUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Admin\Camera_ReviewToolsOptionDialogUserControl.designer.cs">
-      <DependentUpon>Camera_ReviewToolsOptionDialogUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Camera_ReviewUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,17 +88,6 @@
     <Compile Include="Camera_ReviewDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Admin\Camera_ReviewAddUserControl.resx">
-      <DependentUpon>Camera_ReviewAddUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Admin\Camera_ReviewTabUserControl.resx">
-      <DependentUpon>Camera_ReviewTabUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\Camera_ReviewToolsOptionDialogUserControl.resx">
-      <DependentUpon>Camera_ReviewToolsOptionDialogUserControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Server.png" />
   </ItemGroup>
   <ItemGroup>
@@ -150,7 +119,8 @@
   -->
   <PropertyGroup>
     <PostBuildEvent>xcopy /y "$(TargetPath)" "C:\Program Files\Milestone\MIPPlugins\Camera_Review"
-xcopy /y "C:\Users\justi\source\repos\camerasearch\bin\Debug\*.pdb" "C:\Program Files\Milestone\MIPPlugins\Camera_Review"
-xcopy /y "C:\Users\justi\source\repos\camerasearch\bin\Debug\*.def" "C:\Program Files\Milestone\MIPPlugins\Camera_Review"</PostBuildEvent>
+xcopy /y "C:\Users\justi\source\repos\Camera Review\bin\Debug\*.pdb" "C:\Program Files\Milestone\MIPPlugins\Camera_Review"
+xcopy /y "C:\Users\justi\source\repos\Camera Review\bin\Debug\*.def" "C:\Program Files\Milestone\MIPPlugins\Camera_Review"
+xcopy /y "C:\Users\justi\source\repos\Camera Review\bin\Debug\*.dll" "C:\Program Files\Milestone\MIPPlugins\Camera_Review"</PostBuildEvent>
   </PropertyGroup>
 </Project>

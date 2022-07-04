@@ -112,9 +112,23 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Github at 
+https://github.com/MilestoneSystemsInc/Camera-Review
+
+Plugin is provied as is with minimal testing. 
+This plugin is designed to scan hardware added to the system then
+Compare the password on the devices with a list of passwords
+Rate the security of the hardwares password
+Check the firmware (if possible) of the latest tested device firmware by Milestone.
+
+an example of each file is included in the release, the device list csv can be downloaded from 
+https://www.milestonesys.com/community/business-partner-tools/supported-devices/xprotect-corporate-and-xprotect-expert/
+</value>
+  </data>
 </root>
